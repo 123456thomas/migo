@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="static/js/bin/jquery.min.js"></script>
 </head>
 <body>
 <h2>用户注册</h2>
-<form action="">
+<form id="form1" method="post" action="{% url 'users:users_register' %}">
     {% csrf_token %}
     {# 电话注册或者邮箱注册 #}
-    账号:<input type="text" name="username" id="username" value="">
+    账号:<input type="email" name="username" placeholder="邮箱" id="username" value="">
     <br>
-    密码:<input type="password" name="password" id="password">
+    密码:<input type="password" name="password" value="" id="password" placeholder="密码" required id="password"
+              data-rule-remote="php.php" data-msg-required="密码不能为空">
     <br>
-    确认密码:<input type="password" name="repassword" id="repassword">
+    确认密码:<input type="password" name="repassword" value="" id="repassword" placeholder="请确认密码" required
+                equalTo="#password" data-msg-required="请确认密码不能为空">
     <br>
     昵称:
     <input type="text" name="nickname" value="">
     <br>
-    <button type="submit">注册</button>
+    <button type="submit" onclick="return check()">注册</button>
 </form>
+{{error_msg}}
+<script language="JavaScript">
+
+</script>
 </body>
 </html>
