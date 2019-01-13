@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^users/', include('users.urls', namespace='users')),
     url(r'^stores/', include('stores.urls', namespace='stores')),
+    url(r'^goods/', include('stores.urls', namespace='goods')),
     url(r'^', include('commen.urls', namespace='commen')),
 ]
